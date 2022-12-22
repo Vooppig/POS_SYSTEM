@@ -39,13 +39,16 @@ public class LoginFrame extends javax.swing.JFrame {
     lblPassword = new javax.swing.JLabel();
     txtPassword = new javax.swing.JPasswordField();
     btnLogin = new javax.swing.JButton();
+    lblItemImagePreview = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     setTitle("Login");
+    setBackground(new java.awt.Color(255, 255, 255));
     setName(""); // NOI18N
     setPreferredSize(new java.awt.Dimension(720, 600));
     getContentPane().setLayout(new java.awt.GridBagLayout());
 
+    pnlContainer.setBackground(new java.awt.Color(255, 255, 255));
     pnlContainer.setPreferredSize(new java.awt.Dimension(400, 200));
     java.awt.GridBagLayout pnlFormLayout = new java.awt.GridBagLayout();
     pnlFormLayout.columnWidths = new int[] {100, 250};
@@ -53,13 +56,8 @@ public class LoginFrame extends javax.swing.JFrame {
     pnlContainer.setLayout(pnlFormLayout);
 
     lblTitle.setFont(lblTitle.getFont().deriveFont(lblTitle.getFont().getSize()+10f));
-    lblTitle.setText("Welcome Back");
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 0;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    pnlContainer.add(lblTitle, gridBagConstraints);
+    lblTitle.setForeground(new java.awt.Color(25, 47, 157));
+    pnlContainer.add(lblTitle, new java.awt.GridBagConstraints());
 
     lblUsername.setLabelFor(txtUsername);
     lblUsername.setText("Username");
@@ -68,6 +66,12 @@ public class LoginFrame extends javax.swing.JFrame {
     gridBagConstraints.gridy = 1;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
     pnlContainer.add(lblUsername, gridBagConstraints);
+
+    txtUsername.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtUsernameActionPerformed(evt);
+      }
+    });
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 1;
     gridBagConstraints.gridy = 1;
@@ -87,6 +91,8 @@ public class LoginFrame extends javax.swing.JFrame {
     gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
     pnlContainer.add(txtPassword, gridBagConstraints);
 
+    btnLogin.setBackground(new java.awt.Color(25, 47, 157));
+    btnLogin.setForeground(new java.awt.Color(255, 255, 255));
     btnLogin.setText("Log in");
     btnLogin.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +104,13 @@ public class LoginFrame extends javax.swing.JFrame {
     gridBagConstraints.gridy = 3;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
     pnlContainer.add(btnLogin, gridBagConstraints);
+
+    lblItemImagePreview.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    lblItemImagePreview.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/8005091691_c52bb4ef-b5b1-4221-a5.png"))); // NOI18N
+    lblItemImagePreview.setMaximumSize(new java.awt.Dimension(150, 150));
+    lblItemImagePreview.setMinimumSize(new java.awt.Dimension(150, 150));
+    lblItemImagePreview.setPreferredSize(new java.awt.Dimension(150, 150));
+    pnlContainer.add(lblItemImagePreview, new java.awt.GridBagConstraints());
 
     getContentPane().add(pnlContainer, new java.awt.GridBagConstraints());
 
@@ -126,6 +139,10 @@ public class LoginFrame extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
+
   private boolean getValidFields() {
     if (txtUsername.getText().isEmpty()) {
       javax.swing.JOptionPane.showMessageDialog(null, "Username is required", "Warning", javax.swing.JOptionPane.WARNING_MESSAGE);
@@ -153,6 +170,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton btnLogin;
+  private javax.swing.JLabel lblItemImagePreview;
   private javax.swing.JLabel lblPassword;
   private javax.swing.JLabel lblTitle;
   private javax.swing.JLabel lblUsername;

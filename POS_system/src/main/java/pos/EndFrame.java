@@ -50,13 +50,13 @@ public class EndFrame extends javax.swing.JFrame {
     pnlContainer.setLayout(new java.awt.GridLayout(2, 0));
 
     lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/time.png"))); // NOI18N
+    lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/8005091691_c52bb4ef-b5b1-4221-a5.png"))); // NOI18N
     lblIcon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     lblIcon.setIconTextGap(10);
     pnlContainer.add(lblIcon);
 
     lblMessage.setFont(lblMessage.getFont().deriveFont(lblMessage.getFont().getSize()+4f));
-    lblMessage.setText("<html><center>Your food is being prepared.<br/><br/>Once it is ready, you can pick it up at the collection point.</center></html>");
+    lblMessage.setText("<html><center>Your clothes is being prepared.<br/><br/>Once it is ready, you can pick it up at the collection point.</center></html>");
     lblMessage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     pnlContainer.add(lblMessage);
 
@@ -70,6 +70,7 @@ public class EndFrame extends javax.swing.JFrame {
     pnlFooter.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
     pnlFooter.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
+    btnFinish.setForeground(new java.awt.Color(25, 47, 157));
     btnFinish.setText("Finish");
     btnFinish.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2020 Self-Order Kiosk
+ */
 package app;
 
 public class LaunchFrame extends javax.swing.JFrame {
@@ -23,6 +26,7 @@ public class LaunchFrame extends javax.swing.JFrame {
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
+    java.awt.GridBagConstraints gridBagConstraints;
 
     btgTheme = new javax.swing.ButtonGroup();
     pnlContainer = new javax.swing.JPanel();
@@ -31,8 +35,6 @@ public class LaunchFrame extends javax.swing.JFrame {
     pnlActions = new javax.swing.JPanel();
     btnLaunchKiosk = new javax.swing.JButton();
     btnLaunchAdmin = new javax.swing.JButton();
-    jPanel1 = new javax.swing.JPanel();
-    jTextField1 = new javax.swing.JTextField();
     jLabel1 = new javax.swing.JLabel();
     menuBar = new javax.swing.JMenuBar();
     mnuFile = new javax.swing.JMenu();
@@ -40,29 +42,39 @@ public class LaunchFrame extends javax.swing.JFrame {
     mnuTheme = new javax.swing.JMenu();
     cmuLight = new javax.swing.JCheckBoxMenuItem();
     cmuDark = new javax.swing.JCheckBoxMenuItem();
+    mnuHelp = new javax.swing.JMenu();
+    mniAbout = new javax.swing.JMenuItem();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setTitle("Launcher");
     setName(""); // NOI18N
     setPreferredSize(new java.awt.Dimension(720, 600));
-    getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    getContentPane().setLayout(new java.awt.GridBagLayout());
 
     pnlContainer.setMaximumSize(new java.awt.Dimension(640, 480));
     pnlContainer.setMinimumSize(new java.awt.Dimension(640, 480));
     pnlContainer.setPreferredSize(new java.awt.Dimension(640, 480));
-    pnlContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    pnlContainer.setLayout(new java.awt.GridBagLayout());
 
-    lblAppLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/app-logo-1x.png"))); // NOI18N
-    pnlContainer.add(lblAppLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
+    lblAppLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/8005091691_c52bb4ef-b5b1-4221-a5.png"))); // NOI18N
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 0;
+    pnlContainer.add(lblAppLogo, gridBagConstraints);
 
     lblAppName.setFont(lblAppName.getFont().deriveFont(lblAppName.getFont().getSize()+13f));
-    pnlContainer.add(lblAppName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+    gridBagConstraints.insets = new java.awt.Insets(20, 0, 50, 0);
+    pnlContainer.add(lblAppName, gridBagConstraints);
 
     pnlActions.setMaximumSize(null);
     pnlActions.setPreferredSize(new java.awt.Dimension(420, 180));
     pnlActions.setLayout(new java.awt.GridLayout(1, 0, 30, 0));
 
-    btnLaunchKiosk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/water-heater.png"))); // NOI18N
+    btnLaunchKiosk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posnuur.png"))); // NOI18N
     btnLaunchKiosk.setText("Launch Kiosk");
     btnLaunchKiosk.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     btnLaunchKiosk.setIconTextGap(20);
@@ -75,7 +87,7 @@ public class LaunchFrame extends javax.swing.JFrame {
     });
     pnlActions.add(btnLaunchKiosk);
 
-    btnLaunchAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/online-test.png"))); // NOI18N
+    btnLaunchAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posnuur2.png"))); // NOI18N
     btnLaunchAdmin.setText("Launch Admin");
     btnLaunchAdmin.setToolTipText("");
     btnLaunchAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -89,26 +101,14 @@ public class LaunchFrame extends javax.swing.JFrame {
     });
     pnlActions.add(btnLaunchAdmin);
 
-    pnlContainer.add(pnlActions, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 233, -1, -1));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 2;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+    pnlContainer.add(pnlActions, gridBagConstraints);
+    pnlContainer.add(jLabel1, new java.awt.GridBagConstraints());
 
-    jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-    jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-    jTextField1.setText("127.0.0.1");
-    jTextField1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jTextField1ActionPerformed(evt);
-      }
-    });
-    jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 110, 30));
-
-    jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-    jLabel1.setText("ip");
-    jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
-
-    pnlContainer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 130, 30));
-
-    getContentPane().add(pnlContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 48, -1, -1));
+    getContentPane().add(pnlContainer, new java.awt.GridBagConstraints());
 
     mnuFile.setText("File");
 
@@ -145,6 +145,18 @@ public class LaunchFrame extends javax.swing.JFrame {
 
     menuBar.add(mnuTheme);
 
+    mnuHelp.setText("Help");
+
+    mniAbout.setText("About");
+    mniAbout.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        mniAboutActionPerformed(evt);
+      }
+    });
+    mnuHelp.add(mniAbout);
+
+    menuBar.add(mnuHelp);
+
     setJMenuBar(menuBar);
 
     getAccessibleContext().setAccessibleName("");
@@ -152,6 +164,22 @@ public class LaunchFrame extends javax.swing.JFrame {
     pack();
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
+
+  private void mniExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniExitActionPerformed
+    System.exit(0);
+  }//GEN-LAST:event_mniExitActionPerformed
+
+  private void mniAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAboutActionPerformed
+    new AboutDialog().setVisible(true);
+  }//GEN-LAST:event_mniAboutActionPerformed
+
+  private void cmuLightItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmuLightItemStateChanged
+    setTheme(evt, "light");
+  }//GEN-LAST:event_cmuLightItemStateChanged
+
+  private void cmuDarkItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmuDarkItemStateChanged
+    setTheme(evt, "dark");
+  }//GEN-LAST:event_cmuDarkItemStateChanged
 
   private void btnLaunchAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaunchAdminActionPerformed
     new admin.LoginFrame().setVisible(true);
@@ -166,22 +194,6 @@ public class LaunchFrame extends javax.swing.JFrame {
     // Minimize the LaunchFrame frame
     // setState(javax.swing.JFrame.ICONIFIED);
   }//GEN-LAST:event_btnLaunchKioskActionPerformed
-
-  private void mniExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniExitActionPerformed
-    System.exit(0);
-  }//GEN-LAST:event_mniExitActionPerformed
-
-  private void cmuLightItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmuLightItemStateChanged
-    setTheme(evt, "light");
-  }//GEN-LAST:event_cmuLightItemStateChanged
-
-  private void cmuDarkItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmuDarkItemStateChanged
-    setTheme(evt, "dark");
-  }//GEN-LAST:event_cmuDarkItemStateChanged
-
-  private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_jTextField1ActionPerformed
 
   private void getAppName() {
     try {
@@ -232,6 +244,10 @@ public class LaunchFrame extends javax.swing.JFrame {
       setState(javax.swing.JFrame.NORMAL);
     });
 
+    menuItemAbout.addActionListener((java.awt.event.ActionEvent evt) -> {
+      new AboutDialog().setVisible(true);
+    });
+
     menuItemExit.addActionListener((java.awt.event.ActionEvent evt) -> {
       systemTray.remove(trayIcon);
       System.exit(0);
@@ -258,13 +274,13 @@ public class LaunchFrame extends javax.swing.JFrame {
   private javax.swing.JCheckBoxMenuItem cmuDark;
   private javax.swing.JCheckBoxMenuItem cmuLight;
   private javax.swing.JLabel jLabel1;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JTextField jTextField1;
   private javax.swing.JLabel lblAppLogo;
   private javax.swing.JLabel lblAppName;
   private javax.swing.JMenuBar menuBar;
+  private javax.swing.JMenuItem mniAbout;
   private javax.swing.JMenuItem mniExit;
   private javax.swing.JMenu mnuFile;
+  private javax.swing.JMenu mnuHelp;
   private javax.swing.JMenu mnuTheme;
   private javax.swing.JPanel pnlActions;
   private javax.swing.JPanel pnlContainer;

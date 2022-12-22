@@ -52,7 +52,9 @@
                 <Font component="lblTitle" property="font" relativeSize="true" size="20"/>
               </FontInfo>
             </Property>
-            <Property name="text" type="java.lang.String" value="The Krusty Krab"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9d" green="2f" red="19" type="rgb"/>
+            </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -63,7 +65,7 @@
         <Component class="javax.swing.JLabel" name="lblLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/app/customer-logo.png"/>
+              <Image iconType="3" name="/app/8005091691_c52bb4ef-b5b1-4221-a537-3f78d7280d04.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -74,6 +76,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnStart">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9d" green="2f" red="19" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Order here"/>
           </Properties>
           <Events>
