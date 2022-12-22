@@ -1,11 +1,13 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package admin;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import services.clientHandler;
 
 public class LoginFrame extends javax.swing.JFrame {
 
-  services.AuthService authService;
+  services.clientHandler authService;
+  private String ip = "127.0.0.1";
 
   /**
    * Creates new form LoginFrame
@@ -13,7 +15,11 @@ public class LoginFrame extends javax.swing.JFrame {
   public LoginFrame() {
     initComponents();
     app.Global.setAppIcon(this);
-    authService = new services.AuthService();
+    authService = new services.clientHandler(this.ip);
+  }
+
+  public LoginFrame(String ip) {
+    this.ip = ip;
   }
 
   /**
@@ -107,11 +113,15 @@ public class LoginFrame extends javax.swing.JFrame {
       user.setUsername(txtUsername.getText());
       user.setPassword(new String(txtPassword.getPassword()));
 
-      if (authService.getAuth(user)) {
-        new AdminFrame().setVisible(true);
-        dispose();
-      } else {
-        javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password", "Authentication Failed", javax.swing.JOptionPane.ERROR_MESSAGE);
+      try {
+        if (clientHandler.getAuth(user)) {
+          new AdminFrame(this.ip).setVisible(true);
+          this.dispose();
+        } else {
+          javax.swing.JOptionPane.showMessageDialog(null, "Invalid username or password", "Authentication Failed", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+      } catch (ClassNotFoundException ex) {
+        Logger.getLogger(LoginFrame.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
   }//GEN-LAST:event_btnLoginActionPerformed

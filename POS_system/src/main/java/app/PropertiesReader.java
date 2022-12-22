@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package app;
 
 import java.io.IOException;

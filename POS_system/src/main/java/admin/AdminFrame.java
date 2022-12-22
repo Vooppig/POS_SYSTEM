@@ -1,14 +1,24 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package admin;
 
 public class AdminFrame extends javax.swing.JFrame {
 
+  private String ip;
+
   /**
    * Creates new form AdminFrame
+   *
    */
   public AdminFrame() {
+    initComponents();
+    app.Global.setAppIcon(this);
+    tabbedPane.addTab("Orders", new OrdersPanel());
+    tabbedPane.addTab("Items", new ItemsPanel());
+    tabbedPane.addTab("Categories", new CategoriesPanel());
+    tabbedPane.addTab("Users", new UsersPanel());
+  }
+
+  public AdminFrame(String ip) {
+    this.ip = ip;
     initComponents();
     app.Global.setAppIcon(this);
     tabbedPane.addTab("Orders", new OrdersPanel());

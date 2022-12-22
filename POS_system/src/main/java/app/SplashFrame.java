@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package app;
 
 public class SplashFrame extends javax.swing.JFrame {
