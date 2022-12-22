@@ -1,24 +1,24 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package admin;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import services.clientHandler;
 
 public class OrdersPanel extends javax.swing.JPanel {
 
-  services.OrderService orderService;
 
-  int currentOrderId;
+  Integer currentOrderId;
   javax.swing.table.DefaultTableModel tbmOrders;
   pos.OrderTable tbmOrderDetails;
 
   /**
    * Creates new form OrdersPanel
+   * @throws java.lang.ClassNotFoundException
    */
-  public OrdersPanel() {
+  public OrdersPanel() throws ClassNotFoundException {
     /**
      * Initialize
      */
-    orderService = new services.OrderService();
     tbmOrders = new javax.swing.table.DefaultTableModel(
             new Object[][]{},
             new String[]{"ID", "Eating Location", "Payment", "Status", "Date"}
@@ -56,9 +56,9 @@ public class OrdersPanel extends javax.swing.JPanel {
     model.getColumn(0).setMaxWidth(50);
   }
 
-  private void getAllOrders() {
-    java.util.ArrayList<models.Order> orders = orderService.getAll();
-    if (orders.size() > 0) {
+  private void getAllOrders() throws ClassNotFoundException {
+    java.util.ArrayList<models.Order> orders = clientHandler.orderGetAll();
+    if (!orders.isEmpty()) {
       tblOrderAddRows(orders);
     }
   }
@@ -67,23 +67,23 @@ public class OrdersPanel extends javax.swing.JPanel {
     return (status == 1) ? "Ready" : "Pending";
   }
 
-  private void getOrderDetails(int id) {
-    java.util.ArrayList<models.OrderDetail> orderDetails = orderService.getOneDetails(id);
-    if (orderDetails.size() > 0) {
+  private void getOrderDetails(Integer id) throws ClassNotFoundException {
+    java.util.ArrayList<models.OrderDetail> orderDetails = clientHandler.getOneDetails(id);
+    if (!orderDetails.isEmpty()) {
       tbmOrderDetails.addRows(orderDetails);
       tbmOrderDetails.resizeColumns(tblOrderDetails.getColumnModel());
       app.Global.setTotalPrice(orderDetails, lblTotalValue);
     }
   }
 
-  private void handleDelete() {
-    int rowCount = orderService.deleteOne(currentOrderId);
+  private void handleDelete() throws ClassNotFoundException {
+    Integer rowCount = clientHandler.OrderdDeleteOne(currentOrderId);
     if (rowCount > 0) {
       handleRefresh();
     }
   }
 
-  private void handleRefresh() {
+  private void handleRefresh() throws ClassNotFoundException {
     currentOrderId = 0;
     getAllOrders();
     tbmOrderDetails.setRowCount(0);
@@ -177,21 +177,33 @@ public class OrdersPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
   private void tblOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrdersMouseClicked
-    javax.swing.table.TableModel tableModel = (javax.swing.table.TableModel) tblOrders.getModel();
-    int rowIndex = tblOrders.getSelectedRow();
-    currentOrderId = Integer.parseInt(tableModel.getValueAt(rowIndex, 0).toString());
-    getOrderDetails(currentOrderId);
+    try {
+      javax.swing.table.TableModel tableModel = (javax.swing.table.TableModel) tblOrders.getModel();
+      int rowIndex = tblOrders.getSelectedRow();
+      currentOrderId = Integer.parseInt(tableModel.getValueAt(rowIndex, 0).toString());
+      getOrderDetails(currentOrderId);
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(OrdersPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_tblOrdersMouseClicked
 
   private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-    handleRefresh();
+    try {
+      handleRefresh();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(OrdersPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnRefreshActionPerformed
 
   private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
     if (currentOrderId > 0) {
       int answer = javax.swing.JOptionPane.showConfirmDialog(null, "Are you sure to delete this order?", "Delete order", javax.swing.JOptionPane.YES_NO_OPTION, javax.swing.JOptionPane.QUESTION_MESSAGE);
       if (answer == 0) {
-        handleDelete();
+        try {
+          handleDelete();
+        } catch (ClassNotFoundException ex) {
+          Logger.getLogger(OrdersPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
       }
     } else {
       javax.swing.JOptionPane.showMessageDialog(null, "Please select an order", "Warning", javax.swing.JOptionPane.WARNING_MESSAGE);

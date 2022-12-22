@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package pos;
 
 public class MenuFrame extends javax.swing.JFrame implements StateObserver {
@@ -224,7 +221,7 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
 
   private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
     java.util.ArrayList<models.OrderDetail> orderedItems = StateManager.getOrderedItems();
-    if (orderedItems != null && orderedItems.size() > 0) {
+    if (orderedItems != null && !orderedItems.isEmpty()) {
       new OrderSummaryFrame().setVisible(true);
       dispose();
     } else {

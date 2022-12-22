@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package pos;
 
 import java.util.ArrayList;
@@ -9,15 +6,13 @@ import models.OrderDetail;
 public class StateManager {
 
   private static ArrayList<OrderDetail> orderedItems;
-  private static String eatingLocation;
-  private static String paymentMethod;
 
   public static ArrayList<OrderDetail> getOrderedItems() {
     return orderedItems;
   }
 
   public static OrderDetail getOrderedItem(int index) {
-    if (orderedItems != null && orderedItems.size() > 0) {
+    if (orderedItems != null && !orderedItems.isEmpty()) {
       return orderedItems.get(index);
     } else {
       return null;
@@ -26,7 +21,7 @@ public class StateManager {
 
   public static void setOrderedItem(OrderDetail orderDetail) {
     if (orderedItems == null) {
-      orderedItems = new ArrayList<OrderDetail>();
+      orderedItems = new ArrayList<>();
     }
     orderedItems.add(orderDetail);
   }
@@ -39,26 +34,8 @@ public class StateManager {
     orderedItems.remove(index);
   }
 
-  public static String getEatingLocation() {
-    return eatingLocation;
-  }
-
-  public static void setEatingLocation(String location) {
-    eatingLocation = location;
-  }
-
-  public static String getPaymentMethod() {
-    return paymentMethod;
-  }
-
-  public static void setPaymentMethod(String method) {
-    paymentMethod = method;
-  }
-
   public static void reset() {
     orderedItems = null;
-    eatingLocation = null;
-    paymentMethod = null;
   }
 
 }

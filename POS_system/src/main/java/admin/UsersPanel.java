@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package admin;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.User;
+import services.clientHandler;
 
 public class UsersPanel extends javax.swing.JPanel {
-
-  services.UserService userService;
 
   int currentRowIndex;
   int currentUserId;
@@ -15,12 +13,13 @@ public class UsersPanel extends javax.swing.JPanel {
 
   /**
    * Creates new form UsersPanel
+   *
+   * @throws java.lang.ClassNotFoundException
    */
-  public UsersPanel() {
+  public UsersPanel() throws ClassNotFoundException {
     /**
      * Initialize
      */
-    userService = new services.UserService();
     tbmUsers = new javax.swing.table.DefaultTableModel(
             new Object[][]{},
             new String[]{"ID", "Full Name", "Username"}
@@ -62,7 +61,7 @@ public class UsersPanel extends javax.swing.JPanel {
     tbmUsers.removeRow(currentRowIndex);
   }
 
-  private void onRowClicked(java.awt.event.MouseEvent evt) {
+  private void onRowClicked(java.awt.event.MouseEvent evt) throws ClassNotFoundException {
     javax.swing.table.TableModel model = (javax.swing.table.TableModel) tblUsers.getModel();
     int rowIndex = tblUsers.getSelectedRow();
     int userId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
@@ -79,11 +78,11 @@ public class UsersPanel extends javax.swing.JPanel {
     model.getColumn(0).setMaxWidth(50);
   }
 
-  private void handleRefresh() {
+  private void handleRefresh() throws ClassNotFoundException {
     getAllUsers();
   }
 
-  private void handleSave() {
+  private void handleSave() throws ClassNotFoundException {
     String fullName = txtUserName.getText();
     String username = txtUserUsername.getText();
     String password = txtUserPassword.getText();
@@ -114,7 +113,7 @@ public class UsersPanel extends javax.swing.JPanel {
     clearFields();
   }
 
-  private void handleDelete() {
+  private void handleDelete() throws ClassNotFoundException {
     if (currentRowIndex >= 0) {
       deleteOneItem(currentUserId);
       clearFields();
@@ -140,22 +139,22 @@ public class UsersPanel extends javax.swing.JPanel {
     txtUserPassword.setText("");
   }
 
-  private void getAllUsers() {
-    java.util.ArrayList<User> users = userService.getAll();
-    if (users.size() > 0) {
+  private void getAllUsers() throws ClassNotFoundException {
+    java.util.ArrayList<User> users = clientHandler.userGetAll();
+    if (!users.isEmpty()) {
       addRows(users);
     }
   }
 
-  private void getOneUser(int id) {
-    User user = userService.getOne(id);
+  private void getOneUser(int id) throws ClassNotFoundException {
+    User user = clientHandler.userGetOne(id);
     if (user != null) {
       populateFields(user);
     }
   }
 
-  private void createOneUser(User users) {
-    int rowCount = userService.createOne(users);
+  private void createOneUser(User user) throws ClassNotFoundException {
+    int rowCount = clientHandler.userCreateOne(user);
     if (rowCount > 0) {
       getAllUsers();
     } else {
@@ -163,8 +162,8 @@ public class UsersPanel extends javax.swing.JPanel {
     }
   }
 
-  private void updateOneItem(User user) {
-    int rowCount = userService.updateOne(user);
+  private void updateOneItem(User user) throws ClassNotFoundException {
+    int rowCount = clientHandler.userUpdateOne(user);
     if (rowCount > 0) {
       updateRow(user);
     } else {
@@ -172,8 +171,8 @@ public class UsersPanel extends javax.swing.JPanel {
     }
   }
 
-  private void deleteOneItem(int id) {
-    int rowCount = userService.deleteOne(id);
+  private void deleteOneItem(int id) throws ClassNotFoundException {
+    int rowCount = clientHandler.userDeleteOne(id);
     if (rowCount > 0) {
       removeRow();
     } else {
@@ -323,11 +322,19 @@ public class UsersPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
   private void btnUserRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserRefreshActionPerformed
-    handleRefresh();
+    try {
+      handleRefresh();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnUserRefreshActionPerformed
 
   private void btnUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserSaveActionPerformed
-    handleSave();
+    try {
+      handleSave();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnUserSaveActionPerformed
 
   private void btnUserNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserNewActionPerformed
@@ -335,11 +342,19 @@ public class UsersPanel extends javax.swing.JPanel {
   }//GEN-LAST:event_btnUserNewActionPerformed
 
   private void btnUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserDeleteActionPerformed
-    handleDelete();
+    try {
+      handleDelete();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnUserDeleteActionPerformed
 
   private void tblUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsersMouseClicked
-    onRowClicked(evt);
+    try {
+      onRowClicked(evt);
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_tblUsersMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2020 Self-Order Kiosk
- */
 package pos;
 
 public class CustomizeDialog extends javax.swing.JDialog implements StateObservable {
@@ -42,6 +39,8 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
 
   /**
    * Customize an existing item
+   * @param orderDetail
+   * @param index
    */
   public CustomizeDialog(models.OrderDetail orderDetail, int index) {
     setModal(true);
