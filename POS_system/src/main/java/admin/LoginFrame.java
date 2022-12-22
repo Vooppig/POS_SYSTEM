@@ -30,7 +30,6 @@ public class LoginFrame extends javax.swing.JFrame {
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
-    java.awt.GridBagConstraints gridBagConstraints;
 
     pnlContainer = new javax.swing.JPanel();
     lblTitle = new javax.swing.JLabel();
@@ -45,51 +44,34 @@ public class LoginFrame extends javax.swing.JFrame {
     setTitle("Login");
     setBackground(new java.awt.Color(255, 255, 255));
     setName(""); // NOI18N
-    setPreferredSize(new java.awt.Dimension(720, 600));
-    getContentPane().setLayout(new java.awt.GridBagLayout());
+    setPreferredSize(new java.awt.Dimension(410, 300));
+    getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     pnlContainer.setBackground(new java.awt.Color(255, 255, 255));
-    pnlContainer.setPreferredSize(new java.awt.Dimension(400, 200));
-    java.awt.GridBagLayout pnlFormLayout = new java.awt.GridBagLayout();
-    pnlFormLayout.columnWidths = new int[] {100, 250};
-    pnlFormLayout.rowHeights = new int[] {60, 0, 60, 40};
-    pnlContainer.setLayout(pnlFormLayout);
+    pnlContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     lblTitle.setFont(lblTitle.getFont().deriveFont(lblTitle.getFont().getSize()+10f));
     lblTitle.setForeground(new java.awt.Color(25, 47, 157));
-    pnlContainer.add(lblTitle, new java.awt.GridBagConstraints());
+    pnlContainer.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
     lblUsername.setLabelFor(txtUsername);
     lblUsername.setText("Username");
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-    pnlContainer.add(lblUsername, gridBagConstraints);
+    pnlContainer.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+    txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
     txtUsername.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         txtUsernameActionPerformed(evt);
       }
     });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 1;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-    pnlContainer.add(txtUsername, gridBagConstraints);
+    pnlContainer.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 117, 250, 20));
 
     lblPassword.setLabelFor(txtPassword);
     lblPassword.setText("Password");
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 2;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-    pnlContainer.add(lblPassword, gridBagConstraints);
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 1;
-    gridBagConstraints.gridy = 2;
-    gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-    pnlContainer.add(txtPassword, gridBagConstraints);
+    pnlContainer.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+    txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+    pnlContainer.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 167, 250, 20));
 
     btnLogin.setBackground(new java.awt.Color(25, 47, 157));
     btnLogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,20 +81,16 @@ public class LoginFrame extends javax.swing.JFrame {
         btnLoginActionPerformed(evt);
       }
     });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 1;
-    gridBagConstraints.gridy = 3;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-    pnlContainer.add(btnLogin, gridBagConstraints);
+    pnlContainer.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
 
     lblItemImagePreview.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     lblItemImagePreview.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/8005091691_c52bb4ef-b5b1-4221-a5.png"))); // NOI18N
     lblItemImagePreview.setMaximumSize(new java.awt.Dimension(150, 150));
     lblItemImagePreview.setMinimumSize(new java.awt.Dimension(150, 150));
     lblItemImagePreview.setPreferredSize(new java.awt.Dimension(150, 150));
-    pnlContainer.add(lblItemImagePreview, new java.awt.GridBagConstraints());
+    pnlContainer.add(lblItemImagePreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, 90));
 
-    getContentPane().add(pnlContainer, new java.awt.GridBagConstraints());
+    getContentPane().add(pnlContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 300));
 
     getAccessibleContext().setAccessibleName("");
 
