@@ -45,6 +45,12 @@
       <SubComponents>
         <Container class="javax.swing.JTabbedPane" name="tabbedPane">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9d" green="1b" red="19" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="tabPlacement" type="int" value="2"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[574, 400]"/>
@@ -66,6 +72,9 @@
           <SubComponents>
             <Container class="javax.swing.JPanel" name="pnlMealCombos">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder bottom="0" left="20" right="20" top="0"/>
@@ -80,8 +89,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Meal Combos">
-                    <Property name="tabTitle" type="java.lang.String" value="Meal Combos"/>
+                  <JTabbedPaneConstraints tabName="MALGAI">
+                    <Property name="tabTitle" type="java.lang.String" value="MALGAI"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -95,6 +104,9 @@
             </Container>
             <Container class="javax.swing.JPanel" name="pnlSides">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder bottom="0" left="20" right="20" top="0"/>
@@ -103,8 +115,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Sides">
-                    <Property name="tabTitle" type="java.lang.String" value="Sides"/>
+                  <JTabbedPaneConstraints tabName="TSAMTS">
+                    <Property name="tabTitle" type="java.lang.String" value="TSAMTS"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -118,6 +130,9 @@
             </Container>
             <Container class="javax.swing.JPanel" name="pnlDesserts">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder bottom="0" left="20" right="20" top="0"/>
@@ -126,8 +141,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Desserts">
-                    <Property name="tabTitle" type="java.lang.String" value="Desserts"/>
+                  <JTabbedPaneConstraints tabName="UMD">
+                    <Property name="tabTitle" type="java.lang.String" value="UMD"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -141,6 +156,9 @@
             </Container>
             <Container class="javax.swing.JPanel" name="pnlBeverages">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder bottom="0" left="20" right="20" top="0"/>
@@ -149,8 +167,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Beverages">
-                    <Property name="tabTitle" type="java.lang.String" value="Beverages"/>
+                  <JTabbedPaneConstraints tabName="GUTAL">
+                    <Property name="tabTitle" type="java.lang.String" value="GUTAL"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -182,6 +200,9 @@
                   <FontInfo relative="true">
                     <Font bold="true" component="lblOrder" property="font" relativeSize="true" size="0"/>
                   </FontInfo>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="9d" green="2f" red="19" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="My Order"/>
               </Properties>
@@ -614,6 +635,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9d" green="2f" red="19" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
           <Events>
@@ -627,6 +651,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnContinue">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9d" green="2f" red="19" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Continue"/>
           </Properties>
           <Events>

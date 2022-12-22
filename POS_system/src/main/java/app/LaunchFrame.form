@@ -123,7 +123,7 @@
         <Component class="javax.swing.JLabel" name="lblAppLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/app/app-logo-1x.png"/>
+              <Image iconType="3" name="/app/8005091691_c52bb4ef-b5b1-4221-a5.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -170,7 +170,7 @@
             <Component class="javax.swing.JButton" name="btnLaunchKiosk">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/water-heater.png"/>
+                  <Image iconType="3" name="/icons/posnuur.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Launch Kiosk"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -187,7 +187,7 @@
             <Component class="javax.swing.JButton" name="btnLaunchAdmin">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/online-test.png"/>
+                  <Image iconType="3" name="/icons/posnuur2.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Launch Admin"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -204,6 +204,13 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+              <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

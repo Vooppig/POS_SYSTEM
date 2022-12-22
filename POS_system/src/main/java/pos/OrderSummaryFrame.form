@@ -6,6 +6,11 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="btgPayment">
     </Component>
+    <Component class="java.awt.Label" name="label1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="label1"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -159,7 +164,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblEatingLocation">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Where do you want to eat?"/>
+                <Property name="text" type="java.lang.String" value="Where do you want to wear?"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="pnlEatingLocationOptions">
@@ -196,6 +201,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="tgbEatInItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tgbEatInActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="tgbTakeOut">

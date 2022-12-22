@@ -248,6 +248,7 @@ public class ItemsPanel extends javax.swing.JPanel {
     btnItemNew = new javax.swing.JButton();
     btnItemDelete = new javax.swing.JButton();
 
+    setBackground(new java.awt.Color(255, 255, 255));
     setPreferredSize(new java.awt.Dimension(720, 600));
     setLayout(new java.awt.GridBagLayout());
 
@@ -269,13 +270,14 @@ public class ItemsPanel extends javax.swing.JPanel {
     gridBagConstraints.weighty = 1.0;
     add(scpItems, gridBagConstraints);
 
+    pnlItemFields.setBackground(new java.awt.Color(255, 255, 255));
     java.awt.GridBagLayout pnlItemFieldsLayout = new java.awt.GridBagLayout();
     pnlItemFieldsLayout.columnWidths = new int[] {200, 100, 300};
     pnlItemFieldsLayout.rowHeights = new int[] {45, 0, 45, 0, 45};
     pnlItemFields.setLayout(pnlItemFieldsLayout);
 
     lblItemImagePreview.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    lblItemImagePreview.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/soup-bowl.png"))); // NOI18N
+    lblItemImagePreview.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/8005091691_c52bb4ef-b5b1-4221-a5.png"))); // NOI18N
     lblItemImagePreview.setMaximumSize(new java.awt.Dimension(150, 150));
     lblItemImagePreview.setMinimumSize(new java.awt.Dimension(150, 150));
     lblItemImagePreview.setPreferredSize(new java.awt.Dimension(150, 150));
@@ -287,6 +289,7 @@ public class ItemsPanel extends javax.swing.JPanel {
     gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
     pnlItemFields.add(lblItemImagePreview, gridBagConstraints);
 
+    lblItemName.setForeground(new java.awt.Color(22, 42, 140));
     lblItemName.setLabelFor(txtItemName);
     lblItemName.setText("Name");
     gridBagConstraints = new java.awt.GridBagConstraints();
@@ -295,6 +298,7 @@ public class ItemsPanel extends javax.swing.JPanel {
     gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
     pnlItemFields.add(lblItemName, gridBagConstraints);
 
+    lblItemPrice.setForeground(new java.awt.Color(22, 42, 140));
     lblItemPrice.setLabelFor(txtItemPrice);
     lblItemPrice.setText("Price");
     gridBagConstraints = new java.awt.GridBagConstraints();
@@ -303,6 +307,7 @@ public class ItemsPanel extends javax.swing.JPanel {
     gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
     pnlItemFields.add(lblItemPrice, gridBagConstraints);
 
+    lblItemImage.setForeground(new java.awt.Color(22, 42, 140));
     lblItemImage.setLabelFor(txtItemImage);
     lblItemImage.setText("Image");
     gridBagConstraints = new java.awt.GridBagConstraints();
@@ -311,6 +316,7 @@ public class ItemsPanel extends javax.swing.JPanel {
     gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
     pnlItemFields.add(lblItemImage, gridBagConstraints);
 
+    lblItemCategory.setForeground(new java.awt.Color(22, 42, 140));
     lblItemCategory.setLabelFor(cmbItemCategory);
     lblItemCategory.setText("Category");
     gridBagConstraints = new java.awt.GridBagConstraints();

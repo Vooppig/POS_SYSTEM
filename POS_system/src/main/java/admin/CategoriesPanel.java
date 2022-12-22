@@ -189,9 +189,6 @@ public class CategoriesPanel extends javax.swing.JPanel {
     btnCategoryNew = new javax.swing.JButton();
     btnCategoryDelete = new javax.swing.JButton();
 
-    setPreferredSize(new java.awt.Dimension(720, 600));
-    setLayout(new java.awt.GridBagLayout());
-
     tblCategories.setModel(tbmCategories);
     tblCategories.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -200,22 +197,18 @@ public class CategoriesPanel extends javax.swing.JPanel {
     });
     scpCategories.setViewportView(tblCategories);
 
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 0;
-    gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-    gridBagConstraints.weightx = 1.0;
-    gridBagConstraints.weighty = 1.0;
-    add(scpCategories, gridBagConstraints);
+    setBackground(new java.awt.Color(255, 255, 255));
+    setPreferredSize(new java.awt.Dimension(720, 600));
+    setLayout(new java.awt.GridBagLayout());
 
     java.awt.GridBagLayout pnlCategoryFieldsLayout = new java.awt.GridBagLayout();
     pnlCategoryFieldsLayout.columnWidths = new int[] {100, 300};
     pnlCategoryFieldsLayout.rowHeights = new int[] {60};
     pnlCategoryFields.setLayout(pnlCategoryFieldsLayout);
 
+    lblCategoryName.setForeground(new java.awt.Color(25, 47, 157));
     lblCategoryName.setLabelFor(txtCategoryName);
-    lblCategoryName.setText("Category");
+    lblCategoryName.setText("CATEGORY");
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 0;
@@ -235,6 +228,7 @@ public class CategoriesPanel extends javax.swing.JPanel {
 
     pnlCategoryActions.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 20));
 
+    btnCategoryRefresh.setForeground(new java.awt.Color(25, 47, 157));
     btnCategoryRefresh.setText("Refresh");
     btnCategoryRefresh.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,6 +237,7 @@ public class CategoriesPanel extends javax.swing.JPanel {
     });
     pnlCategoryActions.add(btnCategoryRefresh);
 
+    btnCategorySave.setForeground(new java.awt.Color(25, 47, 157));
     btnCategorySave.setText("Save");
     btnCategorySave.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +246,7 @@ public class CategoriesPanel extends javax.swing.JPanel {
     });
     pnlCategoryActions.add(btnCategorySave);
 
+    btnCategoryNew.setForeground(new java.awt.Color(25, 47, 157));
     btnCategoryNew.setText("New");
     btnCategoryNew.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,6 +255,7 @@ public class CategoriesPanel extends javax.swing.JPanel {
     });
     pnlCategoryActions.add(btnCategoryNew);
 
+    btnCategoryDelete.setForeground(new java.awt.Color(25, 47, 157));
     btnCategoryDelete.setText("Delete");
     btnCategoryDelete.setToolTipText("");
     btnCategoryDelete.addActionListener(new java.awt.event.ActionListener() {

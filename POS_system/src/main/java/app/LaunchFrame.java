@@ -35,6 +35,7 @@ public class LaunchFrame extends javax.swing.JFrame {
     pnlActions = new javax.swing.JPanel();
     btnLaunchKiosk = new javax.swing.JButton();
     btnLaunchAdmin = new javax.swing.JButton();
+    jLabel1 = new javax.swing.JLabel();
     menuBar = new javax.swing.JMenuBar();
     mnuFile = new javax.swing.JMenu();
     mniExit = new javax.swing.JMenuItem();
@@ -55,7 +56,7 @@ public class LaunchFrame extends javax.swing.JFrame {
     pnlContainer.setPreferredSize(new java.awt.Dimension(640, 480));
     pnlContainer.setLayout(new java.awt.GridBagLayout());
 
-    lblAppLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/app-logo-1x.png"))); // NOI18N
+    lblAppLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/8005091691_c52bb4ef-b5b1-4221-a5.png"))); // NOI18N
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 0;
@@ -73,7 +74,7 @@ public class LaunchFrame extends javax.swing.JFrame {
     pnlActions.setPreferredSize(new java.awt.Dimension(420, 180));
     pnlActions.setLayout(new java.awt.GridLayout(1, 0, 30, 0));
 
-    btnLaunchKiosk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/water-heater.png"))); // NOI18N
+    btnLaunchKiosk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posnuur.png"))); // NOI18N
     btnLaunchKiosk.setText("Launch Kiosk");
     btnLaunchKiosk.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     btnLaunchKiosk.setIconTextGap(20);
@@ -86,7 +87,7 @@ public class LaunchFrame extends javax.swing.JFrame {
     });
     pnlActions.add(btnLaunchKiosk);
 
-    btnLaunchAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/online-test.png"))); // NOI18N
+    btnLaunchAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posnuur2.png"))); // NOI18N
     btnLaunchAdmin.setText("Launch Admin");
     btnLaunchAdmin.setToolTipText("");
     btnLaunchAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -105,6 +106,7 @@ public class LaunchFrame extends javax.swing.JFrame {
     gridBagConstraints.gridy = 2;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
     pnlContainer.add(pnlActions, gridBagConstraints);
+    pnlContainer.add(jLabel1, new java.awt.GridBagConstraints());
 
     getContentPane().add(pnlContainer, new java.awt.GridBagConstraints());
 
@@ -163,20 +165,6 @@ public class LaunchFrame extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
-  private void btnLaunchAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaunchAdminActionPerformed
-    new admin.LoginFrame().setVisible(true);
-
-    // Minimize the LaunchFrame frame
-    // setState(javax.swing.JFrame.ICONIFIED);
-  }//GEN-LAST:event_btnLaunchAdminActionPerformed
-
-  private void btnLaunchKioskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaunchKioskActionPerformed
-    new pos.StartFrame().setVisible(true);
-
-    // Minimize the LaunchFrame frame
-    // setState(javax.swing.JFrame.ICONIFIED);
-  }//GEN-LAST:event_btnLaunchKioskActionPerformed
-
   private void mniExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniExitActionPerformed
     System.exit(0);
   }//GEN-LAST:event_mniExitActionPerformed
@@ -192,6 +180,20 @@ public class LaunchFrame extends javax.swing.JFrame {
   private void cmuDarkItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmuDarkItemStateChanged
     setTheme(evt, "dark");
   }//GEN-LAST:event_cmuDarkItemStateChanged
+
+  private void btnLaunchAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaunchAdminActionPerformed
+    new admin.LoginFrame().setVisible(true);
+
+    // Minimize the LaunchFrame frame
+    // setState(javax.swing.JFrame.ICONIFIED);
+  }//GEN-LAST:event_btnLaunchAdminActionPerformed
+
+  private void btnLaunchKioskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaunchKioskActionPerformed
+    new pos.StartFrame().setVisible(true);
+
+    // Minimize the LaunchFrame frame
+    // setState(javax.swing.JFrame.ICONIFIED);
+  }//GEN-LAST:event_btnLaunchKioskActionPerformed
 
   private void getAppName() {
     try {
@@ -271,6 +273,7 @@ public class LaunchFrame extends javax.swing.JFrame {
   private javax.swing.JButton btnLaunchKiosk;
   private javax.swing.JCheckBoxMenuItem cmuDark;
   private javax.swing.JCheckBoxMenuItem cmuLight;
+  private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel lblAppLogo;
   private javax.swing.JLabel lblAppName;
   private javax.swing.JMenuBar menuBar;

@@ -62,6 +62,8 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
 
     pnlContent.setLayout(new java.awt.GridBagLayout());
 
+    tabbedPane.setBackground(new java.awt.Color(25, 27, 157));
+    tabbedPane.setForeground(new java.awt.Color(255, 255, 255));
     tabbedPane.setTabPlacement(javax.swing.JTabbedPane.LEFT);
     tabbedPane.setMinimumSize(new java.awt.Dimension(574, 400));
     tabbedPane.setPreferredSize(new java.awt.Dimension(700, 400));
@@ -71,23 +73,27 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
       }
     });
 
+    pnlMealCombos.setBackground(new java.awt.Color(255, 255, 255));
     pnlMealCombos.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 20, 0, 20));
     pnlMealCombos.setMaximumSize(new java.awt.Dimension(0, 0));
     pnlMealCombos.setPreferredSize(new java.awt.Dimension(560, 500));
     pnlMealCombos.setLayout(new java.awt.GridLayout(2, 3, 20, 20));
-    tabbedPane.addTab("Meal Combos", pnlMealCombos);
+    tabbedPane.addTab("MALGAI", pnlMealCombos);
 
+    pnlSides.setBackground(new java.awt.Color(255, 255, 255));
     pnlSides.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 20, 0, 20));
     pnlSides.setLayout(new java.awt.GridLayout(2, 3, 20, 20));
-    tabbedPane.addTab("Sides", pnlSides);
+    tabbedPane.addTab("TSAMTS", pnlSides);
 
+    pnlDesserts.setBackground(new java.awt.Color(255, 255, 255));
     pnlDesserts.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 20, 0, 20));
     pnlDesserts.setLayout(new java.awt.GridLayout(2, 3, 20, 20));
-    tabbedPane.addTab("Desserts", pnlDesserts);
+    tabbedPane.addTab("UMD", pnlDesserts);
 
+    pnlBeverages.setBackground(new java.awt.Color(255, 255, 255));
     pnlBeverages.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 20, 0, 20));
     pnlBeverages.setLayout(new java.awt.GridLayout(2, 3, 20, 20));
-    tabbedPane.addTab("Beverages", pnlBeverages);
+    tabbedPane.addTab("GUTAL", pnlBeverages);
 
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
@@ -105,6 +111,7 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
     pnlOrder.setLayout(jPanel1Layout);
 
     lblOrder.setFont(lblOrder.getFont().deriveFont(lblOrder.getFont().getStyle() | java.awt.Font.BOLD));
+    lblOrder.setForeground(new java.awt.Color(25, 47, 157));
     lblOrder.setText("My Order");
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 1;
@@ -162,6 +169,7 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
     pnlFooter.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
     pnlFooter.setLayout(new java.awt.GridBagLayout());
 
+    btnBack.setForeground(new java.awt.Color(25, 47, 157));
     btnBack.setText("Back");
     btnBack.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +178,7 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
     });
     pnlFooter.add(btnBack, new java.awt.GridBagConstraints());
 
+    btnContinue.setForeground(new java.awt.Color(25, 47, 157));
     btnContinue.setText("Continue");
     btnContinue.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {

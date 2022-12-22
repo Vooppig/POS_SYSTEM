@@ -34,6 +34,7 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
 
     btgEatingLocation = new javax.swing.ButtonGroup();
     btgPayment = new javax.swing.ButtonGroup();
+    label1 = new java.awt.Label();
     pnlHeader = new javax.swing.JPanel();
     lblHeaderTitle = new javax.swing.JLabel();
     pnlContent = new javax.swing.JPanel();
@@ -56,6 +57,8 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
     btnBack = new javax.swing.JButton();
     sepActions = new javax.swing.JSeparator();
     btnCheckOut = new javax.swing.JButton();
+
+    label1.setText("label1");
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     setTitle("Order Summary");
@@ -103,7 +106,7 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
     pnlEatingLocation.setPreferredSize(new java.awt.Dimension(315, 100));
     pnlEatingLocation.setLayout(new java.awt.GridLayout(1, 0));
 
-    lblEatingLocation.setText("Where do you want to eat?");
+    lblEatingLocation.setText("Where do you want to wear?");
     pnlEatingLocation.add(lblEatingLocation);
 
     pnlEatingLocationOptions.setMaximumSize(new java.awt.Dimension(236, 90));
@@ -120,6 +123,11 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
     tgbEatIn.addItemListener(new java.awt.event.ItemListener() {
       public void itemStateChanged(java.awt.event.ItemEvent evt) {
         tgbEatInItemStateChanged(evt);
+      }
+    });
+    tgbEatIn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        tgbEatInActionPerformed(evt);
       }
     });
     pnlEatingLocationOptions.add(tgbEatIn);
@@ -301,6 +309,10 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
     customizeDialog.setVisible(true);
   }//GEN-LAST:event_tblOrderMouseClicked
 
+    private void tgbEatInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tgbEatInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tgbEatInActionPerformed
+
   private void getAllOrderedItems() {
     java.util.ArrayList<models.OrderDetail> orderedItems = StateManager.getOrderedItems();
     if (orderedItems != null) {
@@ -344,6 +356,7 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
   private javax.swing.ButtonGroup btgPayment;
   private javax.swing.JButton btnBack;
   private javax.swing.JButton btnCheckOut;
+  private java.awt.Label label1;
   private javax.swing.JLabel lblEatingLocation;
   private javax.swing.JLabel lblHeaderTitle;
   private javax.swing.JLabel lblPayment;

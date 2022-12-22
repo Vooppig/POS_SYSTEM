@@ -40,14 +40,14 @@ public class AboutDialog extends javax.swing.JDialog {
     pnlContainer.setLayout(new java.awt.GridBagLayout());
 
     lblAppLogoVersion.setFont(lblAppLogoVersion.getFont().deriveFont(lblAppLogoVersion.getFont().getStyle() | java.awt.Font.BOLD, lblAppLogoVersion.getFont().getSize()+3));
-    lblAppLogoVersion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/app-logo-1x.png"))); // NOI18N
+    lblAppLogoVersion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/8005091691_c52bb4ef-b5b1-4221-a5.png"))); // NOI18N
     lblAppLogoVersion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     lblAppLogoVersion.setIconTextGap(15);
     lblAppLogoVersion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
     pnlContainer.add(lblAppLogoVersion, new java.awt.GridBagConstraints());
 
     lblDescription.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    lblDescription.setText("<html>\n<center>\nA self-checkout experience where customers can quickly place an order.\n</center>\n<html>");
+    lblDescription.setText("<html> <center> A self-checkout experience where customers can quickly place an order. </center> <html>");
     lblDescription.setPreferredSize(new java.awt.Dimension(320, 50));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
@@ -56,7 +56,7 @@ public class AboutDialog extends javax.swing.JDialog {
     pnlContainer.add(lblDescription, gridBagConstraints);
 
     lblDevelopers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    lblDevelopers.setText("<html>\n<center>\n<b>Developers</b><br/>\nPratsiyono, Hassen, Chan\n</center>\n</html>");
+    lblDevelopers.setText("<html> <center> <b>Developers</b><br/> Nurmukhamed, Buyandelger, Erhes, Tengis </center> </html>");
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 2;
@@ -64,7 +64,6 @@ public class AboutDialog extends javax.swing.JDialog {
     pnlContainer.add(lblDevelopers, gridBagConstraints);
 
     lblCopyright.setFont(lblCopyright.getFont().deriveFont(lblCopyright.getFont().getSize()-3f));
-    lblCopyright.setText("Copyright (c) 2020 Self-Order Kiosk");
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 3;

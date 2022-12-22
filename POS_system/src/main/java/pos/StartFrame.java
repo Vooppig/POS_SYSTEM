@@ -38,14 +38,14 @@ public class StartFrame extends javax.swing.JFrame {
     pnlContainer.setLayout(new java.awt.GridBagLayout());
 
     lblTitle.setFont(lblTitle.getFont().deriveFont(lblTitle.getFont().getSize()+20f));
-    lblTitle.setText("The Krusty Krab");
+    lblTitle.setForeground(new java.awt.Color(25, 47, 157));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 0;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
     pnlContainer.add(lblTitle, gridBagConstraints);
 
-    lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/customer-logo.png"))); // NOI18N
+    lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/8005091691_c52bb4ef-b5b1-4221-a537-3f78d7280d04.png"))); // NOI18N
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 1;
@@ -53,6 +53,7 @@ public class StartFrame extends javax.swing.JFrame {
     gridBagConstraints.insets = new java.awt.Insets(60, 60, 60, 60);
     pnlContainer.add(lblLogo, gridBagConstraints);
 
+    btnStart.setForeground(new java.awt.Color(25, 47, 157));
     btnStart.setText("Order here");
     btnStart.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
