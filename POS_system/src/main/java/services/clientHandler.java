@@ -95,7 +95,7 @@ public class clientHandler {
     return null;
   }
 
-  public static ArrayList orderGetAll() throws ClassNotFoundException {
+  public static ArrayList<Order> orderGetAll() throws ClassNotFoundException {
     ServerObject ret;
     try ( Socket socket = new Socket(ip, 1234)) {
       ObjectOutputStream out = new ObjectOutputStream(
@@ -108,14 +108,14 @@ public class clientHandler {
       out.flush();
 
       ret = (ServerObject) in.readObject();
-      return (ArrayList) ret.getObject();
+      return (ArrayList<Order>) ret.getObject();
     } catch (IOException e) {
       System.out.println("IOException");
     }
     return null;
   }
 
-  public static ArrayList getOneDetails(Integer id) throws ClassNotFoundException {
+  public static ArrayList<OrderDetail> orderGetOneDetails(Integer id) throws ClassNotFoundException {
     ServerObject ret;
     try ( Socket socket = new Socket(ip, 1234)) {
       ObjectOutputStream out = new ObjectOutputStream(
@@ -129,7 +129,7 @@ public class clientHandler {
       out.flush();
 
       ret = (ServerObject) in.readObject();
-      return (ArrayList) ret.getObject();
+      return (ArrayList<OrderDetail>) ret.getObject();
     } catch (IOException e) {
       System.out.println("IOException");
     }
@@ -374,7 +374,7 @@ public class clientHandler {
       ObjectInputStream in
               = new ObjectInputStream(socket.getInputStream());
       ServerObject object = new ServerObject();
-      object.setOper(3004);
+      object.setOper(3005);
       object.setObject(id);
       out.writeObject(object);
       out.flush();

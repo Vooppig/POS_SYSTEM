@@ -68,7 +68,7 @@ public class OrdersPanel extends javax.swing.JPanel {
   }
 
   private void getOrderDetails(Integer id) throws ClassNotFoundException {
-    java.util.ArrayList<models.OrderDetail> orderDetails = clientHandler.getOneDetails(id);
+    java.util.ArrayList<models.OrderDetail> orderDetails = clientHandler.orderGetOneDetails(id);
     if (!orderDetails.isEmpty()) {
       tbmOrderDetails.addRows(orderDetails);
       tbmOrderDetails.resizeColumns(tblOrderDetails.getColumnModel());
