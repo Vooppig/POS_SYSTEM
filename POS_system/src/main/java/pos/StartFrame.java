@@ -1,5 +1,8 @@
 package pos;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class StartFrame extends javax.swing.JFrame {
 
   /**
@@ -71,9 +74,13 @@ public class StartFrame extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-    StateManager.reset();
-    new MenuFrame().setVisible(true);
-    this.setVisible(false);
+    try {
+      StateManager.reset();
+      new MenuFrame().setVisible(true);
+      this.setVisible(false);
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnStartActionPerformed
 
   /**

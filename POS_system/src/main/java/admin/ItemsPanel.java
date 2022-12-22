@@ -1,12 +1,12 @@
 package admin;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.Category;
 import models.Item;
+import services.clientHandler;
 
 public class ItemsPanel extends javax.swing.JPanel {
-
-  services.ItemService itemService;
-  services.CategoryService categoryService;
 
   int currentRowIndex;
   int currentItemId;
@@ -15,19 +15,20 @@ public class ItemsPanel extends javax.swing.JPanel {
 
   /**
    * Creates new form ItemsPanel
+   *
+   * @throws java.lang.ClassNotFoundException
    */
-  public ItemsPanel() {
+  public ItemsPanel() throws ClassNotFoundException {
     /**
      * Initialize
      */
-    itemService = new services.ItemService();
-    categoryService = new services.CategoryService();
     tbmItems = new javax.swing.table.DefaultTableModel(
             new Object[][]{},
             new String[]{"ID", "Name", "Price", "Category"}
     ) {
       boolean[] canEdit = new boolean[]{false, false, false, false};
 
+      @Override
       public boolean isCellEditable(int rowIndex, int columnIndex) {
         return canEdit[columnIndex];
       }
@@ -66,7 +67,7 @@ public class ItemsPanel extends javax.swing.JPanel {
     tbmItems.removeRow(currentRowIndex);
   }
 
-  private void onRowClicked(java.awt.event.MouseEvent evt) {
+  private void onRowClicked(java.awt.event.MouseEvent evt) throws ClassNotFoundException {
     javax.swing.table.TableModel model = (javax.swing.table.TableModel) tblItems.getModel();
     int rowIndex = tblItems.getSelectedRow();
     int itemId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
@@ -87,11 +88,11 @@ public class ItemsPanel extends javax.swing.JPanel {
     model.getColumn(3).setMaxWidth(150);
   }
 
-  private void handleRefresh() {
+  private void handleRefresh() throws ClassNotFoundException {
     getAllItems();
   }
 
-  private void handleSave() {
+  private void handleSave() throws ClassNotFoundException {
     String name = txtItemName.getText();
     String price = txtItemPrice.getText();
     String image = txtItemImage.getText();
@@ -124,7 +125,7 @@ public class ItemsPanel extends javax.swing.JPanel {
     clearFields();
   }
 
-  private void handleDelete() {
+  private void handleDelete() throws ClassNotFoundException {
     if (currentRowIndex >= 0) {
       deleteOneItem(currentItemId);
       clearFields();
@@ -160,22 +161,22 @@ public class ItemsPanel extends javax.swing.JPanel {
     cmbItemCategory.setSelectedIndex(0);
   }
 
-  private void getAllItems() {
-    java.util.ArrayList<Item> items = itemService.getAll();
-    if (items.size() > 0) {
+  private void getAllItems() throws ClassNotFoundException {
+    java.util.ArrayList<Item> items = clientHandler.itemGetAll();
+    if (!items.isEmpty()) {
       addRows(items);
     }
   }
 
-  private void getOneItem(int id) {
-    Item item = itemService.getOneById(id);
+  private void getOneItem(int id) throws ClassNotFoundException {
+    Item item = clientHandler.itemGetOneById(id);
     if (item != null) {
       populateFields(item);
     }
   }
 
-  private void createOneItem(Item item) {
-    int rowCount = itemService.createOne(item);
+  private void createOneItem(Item item) throws ClassNotFoundException {
+    Integer rowCount = clientHandler.itemCreateOne(item);
     if (rowCount > 0) {
       getAllItems();
     } else {
@@ -183,8 +184,8 @@ public class ItemsPanel extends javax.swing.JPanel {
     }
   }
 
-  private void updateOneItem(Item item) {
-    int rowCount = itemService.updateOne(item);
+  private void updateOneItem(Item item) throws ClassNotFoundException {
+    Integer rowCount = clientHandler.itemUpdateOne(item);
     if (rowCount > 0) {
       updateRow(item);
     } else {
@@ -192,8 +193,8 @@ public class ItemsPanel extends javax.swing.JPanel {
     }
   }
 
-  private void deleteOneItem(int id) {
-    int rowCount = itemService.deleteOne(id);
+  private void deleteOneItem(int id) throws ClassNotFoundException {
+    Integer rowCount = clientHandler.itemDeleteOne(id);
     if (rowCount > 0) {
       removeRow();
     } else {
@@ -201,9 +202,9 @@ public class ItemsPanel extends javax.swing.JPanel {
     }
   }
 
-  private void getAllCategories() {
-    categoriesRef = categoryService.getAll();
-    if (categoriesRef.size() > 0) {
+  private void getAllCategories() throws ClassNotFoundException {
+    categoriesRef = clientHandler.catGetAll();
+    if (!categoriesRef.isEmpty()) {
       categoriesRef.forEach(category -> cmbItemCategory.addItem(category.getName()));
     }
   }
@@ -388,15 +389,27 @@ public class ItemsPanel extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private void tblItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblItemsMouseClicked
-    onRowClicked(evt);
+    try {
+      onRowClicked(evt);
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(ItemsPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_tblItemsMouseClicked
 
   private void btnItemRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItemRefreshActionPerformed
-    handleRefresh();
+    try {
+      handleRefresh();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(ItemsPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnItemRefreshActionPerformed
 
   private void btnItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItemSaveActionPerformed
-    handleSave();
+    try {
+      handleSave();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(ItemsPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnItemSaveActionPerformed
 
   private void btnItemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItemNewActionPerformed
@@ -404,7 +417,11 @@ public class ItemsPanel extends javax.swing.JPanel {
   }//GEN-LAST:event_btnItemNewActionPerformed
 
   private void btnItemDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItemDeleteActionPerformed
-    handleDelete();
+    try {
+      handleDelete();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(ItemsPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnItemDeleteActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables

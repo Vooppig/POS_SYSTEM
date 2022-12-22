@@ -1,23 +1,25 @@
 package admin;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.Category;
+import services.clientHandler;
 
 public class CategoriesPanel extends javax.swing.JPanel {
-
-  services.CategoryService categoryService;
-
+  
   int currentRowIndex;
   int currentCategoryId;
   javax.swing.table.DefaultTableModel tbmCategories;
 
   /**
    * Creates new form CategoriesPanel
+   *
+   * @throws java.lang.ClassNotFoundException
    */
-  public CategoriesPanel() {
+  public CategoriesPanel() throws ClassNotFoundException {
     /**
      * Initialize
      */
-    categoryService = new services.CategoryService();
     tbmCategories = new javax.swing.table.DefaultTableModel(
             new Object[][]{},
             new String[]{"ID", "Name"}
@@ -27,7 +29,7 @@ public class CategoriesPanel extends javax.swing.JPanel {
         return false;
       }
     };
-
+    
     initComponents();
 
     /**
@@ -35,60 +37,60 @@ public class CategoriesPanel extends javax.swing.JPanel {
      */
     getAllCategories();
   }
-
+  
   private void addRow(Category category) {
     tbmCategories.addRow(new Object[]{
       category.getId(), category.getName()
     });
   }
-
+  
   private void addRows(java.util.ArrayList<Category> categories) {
     tbmCategories.setRowCount(0);
     categories.forEach(category -> addRow(category));
     resizeColumns();
   }
-
+  
   private void updateRow(Category category) {
     javax.swing.table.TableModel model = (javax.swing.table.TableModel) tblCategories.getModel();
     model.setValueAt(category.getId(), currentRowIndex, 0);
     model.setValueAt(category.getName(), currentRowIndex, 1);
   }
-
+  
   private void removeRow() {
     tbmCategories.removeRow(currentRowIndex);
   }
-
-  private void onRowClicked(java.awt.event.MouseEvent evt) {
+  
+  private void onRowClicked(java.awt.event.MouseEvent evt) throws ClassNotFoundException {
     javax.swing.table.TableModel model = (javax.swing.table.TableModel) tblCategories.getModel();
     int rowIndex = tblCategories.getSelectedRow();
     int categoryId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
-
+    
     currentRowIndex = rowIndex;
     currentCategoryId = categoryId;
-
+    
     getOneCategory(categoryId);
   }
-
+  
   private void resizeColumns() {
     javax.swing.table.TableColumnModel model = (javax.swing.table.TableColumnModel) tblCategories.getColumnModel();
     model.getColumn(0).setPreferredWidth(50);
     model.getColumn(0).setMaxWidth(50);
   }
-
-  private void handleRefresh() {
+  
+  private void handleRefresh() throws ClassNotFoundException {
     getAllCategories();
   }
-
-  private void handleSave() {
+  
+  private void handleSave() throws ClassNotFoundException {
     String name = txtCategoryName.getText();
-
+    
     if (name.isEmpty()) {
       javax.swing.JOptionPane.showMessageDialog(null, "Name is required", "Warning", javax.swing.JOptionPane.WARNING_MESSAGE);
     } else {
       Category category = new Category();
       category.setId(currentCategoryId);
       category.setName(name);
-
+      
       if (currentRowIndex >= 0) {
         updateOneCategory(category);
       } else {
@@ -97,12 +99,12 @@ public class CategoriesPanel extends javax.swing.JPanel {
       }
     }
   }
-
+  
   private void handleNew() {
     clearFields();
   }
-
-  private void handleDelete() {
+  
+  private void handleDelete() throws ClassNotFoundException {
     if (currentRowIndex >= 0) {
       deleteOneCategory(currentCategoryId);
       clearFields();
@@ -110,54 +112,54 @@ public class CategoriesPanel extends javax.swing.JPanel {
       javax.swing.JOptionPane.showMessageDialog(null, "No category selected to delete", "Warning", javax.swing.JOptionPane.WARNING_MESSAGE);
     }
   }
-
+  
   private void populateFields(Category category) {
     txtCategoryName.setText(category.getName());
   }
-
+  
   private void clearFields() {
     currentRowIndex = -1;
     currentCategoryId = -1;
-
+    
     tblCategories.clearSelection();
-
+    
     txtCategoryName.setText("");
   }
-
-  private void getAllCategories() {
-    java.util.ArrayList<Category> categories = categoryService.getAll();
-    if (categories.size() > 0) {
+  
+  private void getAllCategories() throws ClassNotFoundException {
+    java.util.ArrayList<Category> categories = clientHandler.catGetAll();
+    if (!categories.isEmpty()) {
       addRows(categories);
     }
   }
-
-  private void getOneCategory(int id) {
-    Category category = categoryService.getOneById(id);
+  
+  private void getOneCategory(int id) throws ClassNotFoundException {
+    Category category = clientHandler.catGetOneById(id);
     if (category != null) {
       populateFields(category);
     }
   }
-
-  private void createOneCategory(Category category) {
-    int rowCount = categoryService.createOne(category);
+  
+  private void createOneCategory(Category category) throws ClassNotFoundException {
+    Integer rowCount = clientHandler.catCreateOne(category);
     if (rowCount > 0) {
       getAllCategories();
     } else {
       javax.swing.JOptionPane.showMessageDialog(null, "Failed to create a new category", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
     }
   }
-
-  private void updateOneCategory(Category category) {
-    int rowCount = categoryService.updateOne(category);
+  
+  private void updateOneCategory(Category category) throws ClassNotFoundException {
+    Integer rowCount = clientHandler.catUpdateOne(category);
     if (rowCount > 0) {
       updateRow(category);
     } else {
       javax.swing.JOptionPane.showMessageDialog(null, "Failed to update a category", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
     }
   }
-
-  private void deleteOneCategory(int id) {
-    int rowCount = categoryService.deleteOne(id);
+  
+  private void deleteOneCategory(int id) throws ClassNotFoundException {
+    int rowCount = clientHandler.catDeleteOne(id);
     if (rowCount > 0) {
       removeRow();
     } else {
@@ -274,11 +276,19 @@ public class CategoriesPanel extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private void btnCategoryRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoryRefreshActionPerformed
-    handleRefresh();
+    try {
+      handleRefresh();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(CategoriesPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnCategoryRefreshActionPerformed
 
   private void btnCategorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategorySaveActionPerformed
-    handleSave();
+    try {
+      handleSave();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(CategoriesPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnCategorySaveActionPerformed
 
   private void btnCategoryNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoryNewActionPerformed
@@ -286,11 +296,19 @@ public class CategoriesPanel extends javax.swing.JPanel {
   }//GEN-LAST:event_btnCategoryNewActionPerformed
 
   private void btnCategoryDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoryDeleteActionPerformed
-    handleDelete();
+    try {
+      handleDelete();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(CategoriesPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnCategoryDeleteActionPerformed
 
   private void tblCategoriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCategoriesMouseClicked
-    onRowClicked(evt);
+    try {
+      onRowClicked(evt);
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(CategoriesPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_tblCategoriesMouseClicked
 
   // Variables declaration - do not modify//GEN-BEGIN:variables

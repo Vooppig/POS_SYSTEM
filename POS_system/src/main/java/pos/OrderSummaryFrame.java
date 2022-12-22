@@ -164,8 +164,12 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
   }
 
   private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-    new MenuFrame().setVisible(true);
-    this.dispose();
+    try {
+      new MenuFrame().setVisible(true);
+      this.dispose();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(OrderSummaryFrame.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnBackActionPerformed
 
   private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
@@ -208,18 +212,18 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
 
     try {
       java.util.ArrayList<models.OrderDetail> orderedItems = StateManager.getOrderedItems();
-      
+
       models.Order items = new models.Order();
-      
+
       int orderId = clientHandler.createOne(items);
       int rowCount = clientHandler.createOneDetails(orderId, orderedItems);
-      
+
       if (rowCount > 0) {
         new EndFrame().setVisible(true);
         dispose();
       } else {
         javax.swing.JOptionPane.showMessageDialog(null, "Oops, we couldn't get your order.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-        
+
       }
     } catch (ClassNotFoundException ex) {
       Logger.getLogger(OrderSummaryFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -227,11 +231,15 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
   }//GEN-LAST:event_tgbDisposeItemStateChanged
 
   private void tgbDisposeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tgbDisposeActionPerformed
-    // TODO add your handling code here:
-    StateManager.reset();
-    new MenuFrame().setVisible(true);
-    javax.swing.JOptionPane.showMessageDialog(null, "Order cleared");
-    this.dispose();
+    try {
+      // TODO add your handling code here:
+      StateManager.reset();
+      new MenuFrame().setVisible(true);
+      javax.swing.JOptionPane.showMessageDialog(null, "Order cleared");
+      this.dispose();
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(OrderSummaryFrame.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_tgbDisposeActionPerformed
 
   private void getAllOrderedItems() {

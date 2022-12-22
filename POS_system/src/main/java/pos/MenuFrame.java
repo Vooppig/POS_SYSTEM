@@ -1,8 +1,11 @@
 package pos;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import services.clientHandler;
+
 public class MenuFrame extends javax.swing.JFrame implements StateObserver {
 
-  services.ItemService itemService;
   OrderTable tbmOrder;
   java.util.ArrayList<models.Item> itemsMealCombos;
   java.util.ArrayList<models.Item> itemsSides;
@@ -12,7 +15,7 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
   /**
    * Creates new form MenuFrame
    */
-  public MenuFrame() {
+  public MenuFrame() throws ClassNotFoundException {
     app.Global.setAppIcon(this);
 
     /**
@@ -186,9 +189,8 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
-  private void initModels() {
-    itemService = new services.ItemService();
-    itemsMealCombos = itemService.getAllByCategory(1);
+  private void initModels() throws ClassNotFoundException {
+    itemsMealCombos = clientHandler.itemGetAllByCateory(1);
 
     tbmOrder = new OrderTable();
   }
@@ -231,30 +233,42 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
     int tabIndex = tabbedPane.getSelectedIndex();
 
     if (tabIndex == 1 && itemsSides == null) {
-      itemsSides = itemService.getAllByCategory(2);
-      itemsSides.forEach((item) -> {
-        BtnItem btnItem = new BtnItem(item);
-        btnItem.addActionListener((java.awt.event.ActionEvent e) -> itemActionPeformed(item));
-        pnlSides.add(btnItem);
-      });
+      try {
+        itemsSides = clientHandler.itemGetAllByCateory(2);
+        itemsSides.forEach((item) -> {
+          BtnItem btnItem = new BtnItem(item);
+          btnItem.addActionListener((java.awt.event.ActionEvent e) -> itemActionPeformed(item));
+          pnlSides.add(btnItem);
+        });
+      } catch (ClassNotFoundException ex) {
+        Logger.getLogger(MenuFrame.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
 
     if (tabIndex == 2 && itemsDesserts == null) {
-      itemsDesserts = itemService.getAllByCategory(3);
-      itemsDesserts.forEach((item) -> {
-        BtnItem btnItem = new BtnItem(item);
-        btnItem.addActionListener((java.awt.event.ActionEvent e) -> itemActionPeformed(item));
-        pnlDesserts.add(btnItem);
-      });
+      try {
+        itemsDesserts = clientHandler.itemGetAllByCateory(3);
+        itemsDesserts.forEach((item) -> {
+          BtnItem btnItem = new BtnItem(item);
+          btnItem.addActionListener((java.awt.event.ActionEvent e) -> itemActionPeformed(item));
+          pnlDesserts.add(btnItem);
+        });
+      } catch (ClassNotFoundException ex) {
+        Logger.getLogger(MenuFrame.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
 
     if (tabIndex == 3 && itemsBeverages == null) {
-      itemsBeverages = itemService.getAllByCategory(4);
-      itemsBeverages.forEach((item) -> {
-        BtnItem btnItem = new BtnItem(item);
-        btnItem.addActionListener((java.awt.event.ActionEvent e) -> itemActionPeformed(item));
-        pnlBeverages.add(btnItem);
-      });
+      try {
+        itemsBeverages = clientHandler.itemGetAllByCateory(4);
+        itemsBeverages.forEach((item) -> {
+          BtnItem btnItem = new BtnItem(item);
+          btnItem.addActionListener((java.awt.event.ActionEvent e) -> itemActionPeformed(item));
+          pnlBeverages.add(btnItem);
+        });
+      } catch (ClassNotFoundException ex) {
+        Logger.getLogger(MenuFrame.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
   }//GEN-LAST:event_tabbedPaneStateChanged
 
@@ -288,7 +302,11 @@ public class MenuFrame extends javax.swing.JFrame implements StateObserver {
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(() -> {
-      new MenuFrame().setVisible(true);
+      try {
+        new MenuFrame().setVisible(true);
+      } catch (ClassNotFoundException ex) {
+        Logger.getLogger(MenuFrame.class.getName()).log(Level.SEVERE, null, ex);
+      }
     });
   }
 

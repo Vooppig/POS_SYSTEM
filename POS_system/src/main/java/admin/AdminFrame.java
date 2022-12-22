@@ -1,5 +1,8 @@
 package admin;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class AdminFrame extends javax.swing.JFrame {
 
   private String ip;
@@ -8,7 +11,7 @@ public class AdminFrame extends javax.swing.JFrame {
    * Creates new form AdminFrame
    *
    */
-  public AdminFrame() {
+  public AdminFrame() throws ClassNotFoundException {
     initComponents();
     app.Global.setAppIcon(this);
     tabbedPane.addTab("Orders", new OrdersPanel());
@@ -17,7 +20,7 @@ public class AdminFrame extends javax.swing.JFrame {
     tabbedPane.addTab("Users", new UsersPanel());
   }
 
-  public AdminFrame(String ip) {
+  public AdminFrame(String ip) throws ClassNotFoundException {
     this.ip = ip;
     initComponents();
     app.Global.setAppIcon(this);
@@ -58,7 +61,11 @@ public class AdminFrame extends javax.swing.JFrame {
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(() -> {
-      new AdminFrame().setVisible(true);
+      try {
+        new AdminFrame().setVisible(true);
+      } catch (ClassNotFoundException ex) {
+        Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+      }
     });
   }
 
