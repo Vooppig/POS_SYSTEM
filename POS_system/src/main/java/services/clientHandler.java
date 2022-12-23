@@ -29,6 +29,10 @@ public class clientHandler {
     clientHandler.ip = ip;
   }
 
+  public static void setIp(String ip) {
+    clientHandler.ip = ip;
+  }
+
   public static Boolean getAuth(models.User user) throws ClassNotFoundException {
     Boolean isauth = false;
     ServerObject ret;

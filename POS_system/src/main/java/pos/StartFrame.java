@@ -2,6 +2,7 @@ package pos;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import services.clientHandler;
 
 public class StartFrame extends javax.swing.JFrame {
 
@@ -19,6 +20,7 @@ public class StartFrame extends javax.swing.JFrame {
     this.ip = ip;
     initComponents();
     app.Global.setAppIcon(this);
+    clientHandler.setIp(this.ip);
   }
 
   /**

@@ -12,17 +12,18 @@ public class LoginFrame extends javax.swing.JFrame {
   /**
    * Creates new form LoginFrame
    */
+
   public LoginFrame() {
     initComponents();
     app.Global.setAppIcon(this);
-    authService = new services.clientHandler(this.ip);
+    clientHandler.setIp(this.ip);
   }
 
   public LoginFrame(String ip) {
     initComponents();
     app.Global.setAppIcon(this);
-    authService = new services.clientHandler(this.ip);
     this.ip = ip;
+    clientHandler.setIp(this.ip);
   }
 
   /**
