@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class OrderDetails implements Serializable {
 
   private Integer id;
-  private ArrayList list;
+  private ArrayList<OrderDetail> list;
 
   public Integer getId() {
     return id;
@@ -24,11 +24,11 @@ public class OrderDetails implements Serializable {
     this.id = id;
   }
 
-  public ArrayList getList() {
+  public ArrayList<OrderDetail> getList() {
     return list;
   }
 
-  public void setList(ArrayList list) {
+  public void setList(ArrayList<OrderDetail> list) {
     this.list = list;
   }
 

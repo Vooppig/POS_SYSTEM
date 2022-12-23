@@ -4,53 +4,30 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 
-public class Order implements Serializable{
+public class Order implements Serializable {
 
   /**
    * Constants
    */
-  public static final String EAT_IN = "EAT_IN";
-  public static final String TAKE_OUT = "TAKE_OUT";
-  public static final String PAY_HERE = "PAY_HERE";
-  public static final String PAY_COUNTER = "PAY_COUNTER";
-
-  private int id;
-  private int status;
-  private String eatingLocation;
-  private String paymentMethod;
+  private Integer id;
+  private Integer status;
   private Date date;
   private ArrayList<OrderDetail> details;
 
-  public int getId() {
+  public Integer getId() {
     return this.id;
   }
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
-  public int getStatus() {
+  public Integer getStatus() {
     return this.status;
   }
 
-  public void setStatus(int status) {
+  public void setStatus(Integer status) {
     this.status = status;
-  }
-
-  public String getEatingLocation() {
-    return this.eatingLocation;
-  }
-
-  public void setEatingLocation(String eatingLocation) {
-    this.eatingLocation = eatingLocation;
-  }
-
-  public String getPaymentMethod() {
-    return this.paymentMethod;
-  }
-
-  public void setPaymentMethod(String paymentMethod) {
-    this.paymentMethod = paymentMethod;
   }
 
   public Date getDate() {

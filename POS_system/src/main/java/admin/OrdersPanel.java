@@ -40,7 +40,7 @@ public class OrdersPanel extends javax.swing.JPanel {
 
   private void tblOrderAddRow(models.Order order) {
     tbmOrders.addRow(new Object[]{
-      order.getId(), app.Global.toTitleCase(order.getEatingLocation()), app.Global.toTitleCase(order.getPaymentMethod()), getStatusValue(order.getStatus()), order.getDate()
+      order.getId(), getStatusValue(order.getStatus()), order.getDate()
     });
   }
 

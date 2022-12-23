@@ -2,7 +2,7 @@ package models;
 
 import java.io.Serializable;
 
-public class OrderDetail extends Item implements Serializable{
+public class OrderDetail extends Item implements Serializable {
 
   /**
    * Constants
@@ -11,17 +11,17 @@ public class OrderDetail extends Item implements Serializable{
   public static final String MEDIUM = "MEDIUM";
   public static final String LARGE = "LARGE";
 
-  private int quantity;
+  private Integer quantity;
   private String size;
   private double subTotal;
   private double orderPrice;
-  private int orderId;
+  private Integer orderId;
 
-  public int getQuantity() {
+  public Integer getQuantity() {
     return this.quantity;
   }
 
-  public void setQuantity(int quantity) {
+  public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
 
@@ -41,11 +41,11 @@ public class OrderDetail extends Item implements Serializable{
     this.orderPrice = orderPrice;
   }
 
-  public int getOrderId() {
+  public Integer getOrderId() {
     return this.orderId;
   }
 
-  public void setOrderId(int orderId) {
+  public void setOrderId(Integer orderId) {
     this.orderId = orderId;
   }
 

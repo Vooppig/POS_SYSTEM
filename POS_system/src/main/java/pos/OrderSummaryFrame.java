@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import services.clientHandler;
 
 public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserver {
-
+  
   OrderTable tbmOrder;
   models.Order order;
 
@@ -131,7 +131,7 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
   private void initModels() {
     tbmOrder = new OrderTable();
   }
-
+  
   private void initState() {
     getAllOrderedItems();
   }
@@ -145,15 +145,15 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
   }//GEN-LAST:event_btnBackActionPerformed
 
   private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
-
+    
     try {
       java.util.ArrayList<models.OrderDetail> orderedItems = StateManager.getOrderedItems();
-
-      models.Order order = new models.Order();
-
-      int orderId = clientHandler.createOne(order);
-      int rowCount = clientHandler.createOneDetails(orderId, orderedItems);
-
+      
+      models.Order ord = new models.Order();
+      ord.setStatus(0);
+      Integer orderId = clientHandler.createOne(ord);
+      Integer rowCount = clientHandler.createOneDetails(orderId, orderedItems);
+      
       if (rowCount > 0) {
         new EndFrame().setVisible(true);
         dispose();
@@ -174,21 +174,21 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
   }//GEN-LAST:event_tblOrderMouseClicked
 
   private void tgbDisposeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tgbDisposeItemStateChanged
-
+    
     try {
       java.util.ArrayList<models.OrderDetail> orderedItems = StateManager.getOrderedItems();
-
+      
       models.Order items = new models.Order();
-
+      
       int orderId = clientHandler.createOne(items);
       int rowCount = clientHandler.createOneDetails(orderId, orderedItems);
-
+      
       if (rowCount > 0) {
         new EndFrame().setVisible(true);
         dispose();
       } else {
         javax.swing.JOptionPane.showMessageDialog(null, "Oops, we couldn't get your order.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-
+        
       }
     } catch (ClassNotFoundException ex) {
       Logger.getLogger(OrderSummaryFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -206,7 +206,7 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
       Logger.getLogger(OrderSummaryFrame.class.getName()).log(Level.SEVERE, null, ex);
     }
   }//GEN-LAST:event_tgbDisposeActionPerformed
-
+  
   private void getAllOrderedItems() {
     java.util.ArrayList<models.OrderDetail> orderedItems = StateManager.getOrderedItems();
     if (orderedItems != null) {
@@ -215,7 +215,7 @@ public class OrderSummaryFrame extends javax.swing.JFrame implements StateObserv
       app.Global.setTotalPrice(orderedItems, lblTotalValue);
     }
   }
-
+  
   @Override
   public void onStateChange() {
     getAllOrderedItems();

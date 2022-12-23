@@ -102,14 +102,13 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     setTitle("Customize");
-    setMinimumSize(new java.awt.Dimension(720, 860));
+    setMinimumSize(new java.awt.Dimension(400, 400));
     setName(""); // NOI18N
-    setPreferredSize(new java.awt.Dimension(720, 860));
+    setPreferredSize(new java.awt.Dimension(500, 650));
 
     pnlHeader.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
     pnlHeader.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-    lblHeaderTitle.setBackground(null);
     lblHeaderTitle.setFont(lblHeaderTitle.getFont().deriveFont(lblHeaderTitle.getFont().getSize()+10f));
     lblHeaderTitle.setForeground(new java.awt.Color(25, 47, 157));
     lblHeaderTitle.setText("MALGAI");
@@ -136,7 +135,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
 
     pnlPrice.setLayout(new java.awt.GridBagLayout());
 
-    lblPrice.setBackground(null);
     lblPrice.setForeground(new java.awt.Color(25, 47, 157));
     lblPrice.setText("Price");
     pnlPrice.add(lblPrice, new java.awt.GridBagConstraints());
@@ -158,7 +156,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
     pnlSize.setPreferredSize(new java.awt.Dimension(720, 80));
     pnlSize.setLayout(new java.awt.GridBagLayout());
 
-    lblSize.setBackground(null);
     lblSize.setForeground(new java.awt.Color(25, 47, 157));
     lblSize.setText("Size");
     pnlSize.add(lblSize, new java.awt.GridBagConstraints());
@@ -167,7 +164,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
     pnlSizeOptions.setPreferredSize(new java.awt.Dimension(400, 120));
     pnlSizeOptions.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
 
-    tgbSizeSmall.setBackground(null);
     btgSize.add(tgbSizeSmall);
     tgbSizeSmall.setForeground(new java.awt.Color(25, 47, 157));
     tgbSizeSmall.setText("Small");
@@ -178,7 +174,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
     });
     pnlSizeOptions.add(tgbSizeSmall);
 
-    tgbSizeMedium.setBackground(null);
     btgSize.add(tgbSizeMedium);
     tgbSizeMedium.setForeground(new java.awt.Color(25, 47, 157));
     tgbSizeMedium.setText("Medium");
@@ -189,7 +184,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
     });
     pnlSizeOptions.add(tgbSizeMedium);
 
-    tgbSizeLarge.setBackground(null);
     btgSize.add(tgbSizeLarge);
     tgbSizeLarge.setForeground(new java.awt.Color(25, 47, 157));
     tgbSizeLarge.setText("Large");
@@ -219,7 +213,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
     pnlQuantity.setPreferredSize(new java.awt.Dimension(720, 50));
     pnlQuantity.setLayout(new java.awt.GridBagLayout());
 
-    lblQuantity.setBackground(null);
     lblQuantity.setForeground(new java.awt.Color(25, 47, 157));
     lblQuantity.setText("Quantity");
     gridBagConstraints = new java.awt.GridBagConstraints();
@@ -289,7 +282,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
     pnlFooter.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
     pnlFooter.setLayout(new java.awt.GridBagLayout());
 
-    btnCancel.setBackground(null);
     btnCancel.setForeground(new java.awt.Color(25, 47, 157));
     btnCancel.setText("Cancel");
     btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +291,6 @@ public class CustomizeDialog extends javax.swing.JDialog implements StateObserva
     });
     pnlFooter.add(btnCancel, new java.awt.GridBagConstraints());
 
-    btnAdd.setBackground(null);
     btnAdd.setForeground(new java.awt.Color(25, 47, 157));
     btnAdd.setText("Add to order");
     btnAdd.addActionListener(new java.awt.event.ActionListener() {

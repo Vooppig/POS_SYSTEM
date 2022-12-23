@@ -13,6 +13,7 @@ import models.Category;
 import models.Item;
 import models.Order;
 import models.OrderDetail;
+import models.OrderDetails;
 import models.ServerObject;
 import models.User;
 
@@ -80,9 +81,9 @@ public class clientHandler {
               = new ObjectInputStream(socket.getInputStream());
       ServerObject object = new ServerObject();
       object.setOper(1001);
-      ArrayList ob = new ArrayList();
-      ob.add(orderId);
-      ob.add(orderedItems);
+      OrderDetails ob = new OrderDetails();
+      ob.setId(orderId);
+      ob.setList(orderedItems);
       object.setObject(ob);
       out.writeObject(object);
       out.flush();
