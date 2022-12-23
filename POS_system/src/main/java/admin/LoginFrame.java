@@ -19,6 +19,9 @@ public class LoginFrame extends javax.swing.JFrame {
   }
 
   public LoginFrame(String ip) {
+    initComponents();
+    app.Global.setAppIcon(this);
+    authService = new services.clientHandler(this.ip);
     this.ip = ip;
   }
 
@@ -118,7 +121,7 @@ public class LoginFrame extends javax.swing.JFrame {
   }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
+      // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
   private boolean getValidFields() {

@@ -5,10 +5,18 @@ import java.util.logging.Logger;
 
 public class StartFrame extends javax.swing.JFrame {
 
+  private String ip = "127.0.0.1";
+
   /**
    * Creates new form StartFrame
    */
   public StartFrame() {
+    initComponents();
+    app.Global.setAppIcon(this);
+  }
+
+  public StartFrame(String ip) {
+    this.ip = ip;
     initComponents();
     app.Global.setAppIcon(this);
   }

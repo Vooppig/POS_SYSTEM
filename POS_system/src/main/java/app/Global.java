@@ -3,7 +3,7 @@ package app;
 public class Global {
 
   public static void setAppIcon(javax.swing.JFrame frame) {
-    javax.swing.ImageIcon appIcon = new javax.swing.ImageIcon(frame.getClass().getResource("/app/app-logo-1x.png"));
+    javax.swing.ImageIcon appIcon = new javax.swing.ImageIcon(frame.getClass().getResource("/app/so.png"));
     frame.setIconImage(appIcon.getImage());
   }
 
@@ -28,7 +28,7 @@ public class Global {
   }
 
   public static javax.swing.ImageIcon getImagePreview(String url, int w, int h, Object context) {
-    javax.swing.ImageIcon image = new javax.swing.ImageIcon(context.getClass().getResource("/icons/soup-bowl.png"));
+    javax.swing.ImageIcon image = new javax.swing.ImageIcon(context.getClass().getResource("/app/so.png"));
     if (url != null && !url.isEmpty()) {
       try {
         java.net.URL imageUrl = new java.net.URL(url + "?fit=around%7C" + w + "%3A" + h + "&crop=" + w + "%3A" + h + "%3B%2A%2C%2A");
