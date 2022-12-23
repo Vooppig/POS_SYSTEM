@@ -6,13 +6,13 @@ import services.clientHandler;
 
 public class OrdersPanel extends javax.swing.JPanel {
 
-
   Integer currentOrderId;
   javax.swing.table.DefaultTableModel tbmOrders;
   pos.OrderTable tbmOrderDetails;
 
   /**
    * Creates new form OrdersPanel
+   *
    * @throws java.lang.ClassNotFoundException
    */
   public OrdersPanel() throws ClassNotFoundException {
@@ -21,7 +21,7 @@ public class OrdersPanel extends javax.swing.JPanel {
      */
     tbmOrders = new javax.swing.table.DefaultTableModel(
             new Object[][]{},
-            new String[]{"ID", "Eating Location", "Payment", "Status", "Date"}
+            new String[]{"ID", "Status", "Date"}
     ) {
       @Override
       public boolean isCellEditable(int rowIndex, int columnIndex) {
